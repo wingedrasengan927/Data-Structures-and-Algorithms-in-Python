@@ -74,4 +74,4 @@ if result:
     for i in range(len(board)):
         for j in range(len(board)):
             print(board[i][j], end="")
-        print()
+        print() 
