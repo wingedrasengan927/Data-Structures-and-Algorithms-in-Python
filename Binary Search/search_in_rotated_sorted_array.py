@@ -2,6 +2,9 @@
 Given an array which is sorted and rotated, find a target, e.g., [4, 5, 0, 1, 2, 3]
 '''
 
+import numpy as np
+import matplotlib.pyplot as plt
+
 def binary_search_recursive(arr, target, start, end):
     if start > end:
         return -1
@@ -18,12 +21,15 @@ def binary_search_recursive(arr, target, start, end):
             return binary_search_recursive(arr, target, mid+1, end)
     # check if mid lies on the right sorted part
     elif arr[mid] <= arr[end]:
-        # now check if target lies in the right sorted path
+        # now check if target lies in the right sorted part
         if arr[mid] < target <= arr[end]:
             return binary_search_recursive(arr, target, mid+1, end)
         else:
             return binary_search_recursive(arr, target, start, mid-1)
 
-arr = [6, 7, 8, 1, 2, 5]
+arr = [6, 7, 8, 1, 2, 3, 4, 5]
+plt.plot(arr)
+plt.show()
+# look at the above graph to understand how left sorted and right sorted parts look like
 target = 1
 print(binary_search_recursive(arr, target, 0, len(arr)-1))
