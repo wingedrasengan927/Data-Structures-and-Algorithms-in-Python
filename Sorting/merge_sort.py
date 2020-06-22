@@ -34,8 +34,8 @@ def merge_sort(arr):
     left_array = arr[:mid]
     right_array = arr[mid:]
 
-    merge_sort(left_array)
-    merge_sort(right_array)
+    left_array = merge_sort(left_array)
+    right_array = merge_sort(right_array)
 
     return merge(left_array, right_array, arr)
         
