@@ -14,7 +14,7 @@ def add_two_numbers(num1, num2):
     num1_list = convert_numbers_to_list(num1)
     num2_list = convert_numbers_to_list(num2)
      
-    carry = _sum = 0
+    _sum = 0
     result = []
 
     for _ in range(max(len(num1_list), len(num2_list))):
@@ -24,17 +24,16 @@ def add_two_numbers(num1, num2):
         if len(num2_list) > 0:
             _sum += num2_list[-1]
 
-        carry = _sum // 10
         place = _sum % 10
+        _sum = _sum // 10
 
         result.append(place)
-        _sum = carry
 
         num1_list = num1_list[:-1]
         num2_list = num2_list[:-1]
 
-    if carry != 0:
-        result.append(carry)
+    if _sum != 0:
+        result.append(_sum)
     
     result = list(map(str, result))
     result = result[::-1]
