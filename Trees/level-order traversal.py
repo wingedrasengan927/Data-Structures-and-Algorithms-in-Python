@@ -10,6 +10,7 @@ def levelorder_traversal(root):
             level.append(node.val)
             children.append(node.left)
             children.append(node.right)
-        result.append(level)
+        if len(level) > 0:
+            result.append(level)
         queue = children
     return result
