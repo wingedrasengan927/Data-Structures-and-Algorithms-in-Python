@@ -80,3 +80,34 @@ def insertIntoBSTIteratively(self, root, val):
             else:
                 node.left = TreeNode(val)
     return root
+
+
+def deleteNode(self, root: TreeNode, key: int) -> TreeNode:
+    if not root:
+        return None
+    
+    val = root.val
+    
+    if val > key:
+        root.left = self.deleteNode(root.left, key)
+    elif val < key:
+        root.right = self.deleteNode(root.right, key)
+    else:
+        if root.left and root.right:
+            # find inorder succesor
+            node = root.right
+            while node.left:
+                node = node.left
+            node_val = node.val
+            root.right = self.deleteNode(root.right, node_val)
+            root.val = node_val
+        # if only one subtree is present on the node to delete,
+        # we simply return that subtree
+        elif root.left:
+            return root.left
+        elif root.right:
+            return root.right
+        else:
+            return None
+
+    return root

@@ -28,7 +28,7 @@ def merge(left_array, right_array, main_array):
 
 def merge_sort(arr):
     if len(arr) < 2:
-        return
+        return arr
     
     mid = len(arr) // 2
     left_array = arr[:mid]

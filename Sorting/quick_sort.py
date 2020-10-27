@@ -1,7 +1,6 @@
 import random
 
 def partition(arr, start_index, end_index):
-        
     '''
     Partitioning
     --------------
