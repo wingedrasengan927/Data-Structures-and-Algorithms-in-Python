@@ -28,7 +28,7 @@ def quick_sort_helper(arr, start_index, end_index):
     if start_index >= end_index:
         return
 
-    papartition_indexrtion_index = partition(arr, start_index, end_index)
+    partition_index = partition(arr, start_index, end_index)
 
     quick_sort_helper(arr, start_index, partition_index-1)
     quick_sort_helper(arr, partition_index + 1, end_index)
