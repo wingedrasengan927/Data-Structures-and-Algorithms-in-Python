@@ -27,6 +27,9 @@ def quickselect_helper(array, start_index, end_index, k):
         return array[partition_index]
 
 def quickselect(array, k):
+    '''
+    Time Complexity - O(n)
+    '''
     return quickselect_helper(array, 0, len(array)-1, k)
 
 array = [8, 5, 2, 9, 7, 6, 3]

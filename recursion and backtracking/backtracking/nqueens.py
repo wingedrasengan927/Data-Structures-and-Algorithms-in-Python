@@ -10,7 +10,8 @@ N = int(input())
 board = [[0 for x in range(N)] for y in range(N)]
 
 def is_attacked(x, y, board):
-    '''returns True is a cell is under attack'''
+    '''returns True is a cell is under attack
+    Time Complexity - 2(1 + sqrt(2)n - O(n))'''
     # check row
     for i in range(len(board)):
         if board[x][i] == 1:
@@ -19,6 +20,7 @@ def is_attacked(x, y, board):
     for i in range(len(board)):
         if board[i][y] == 1:
             return True
+
     # check diagonal
 
     # top right
