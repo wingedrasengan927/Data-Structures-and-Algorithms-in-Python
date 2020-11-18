@@ -17,7 +17,7 @@ def main(p):
 def DP(i, j, memo, p):
     '''
     Note that i, j represent the index of matrices.
-    * j is exclusive
+    *j is exclusive
     '''
     if (i, j) in memo:
         return memo[(i, j)]
