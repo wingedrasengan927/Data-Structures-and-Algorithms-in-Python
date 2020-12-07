@@ -46,9 +46,7 @@ class DisjointSet(object):
             parent1.rank += 1
         elif parent1.rank > parent2.rank:
             parent2.parent = parent1
-            parent1.rank += parent2.rank
         else:
             parent1.parent = parent2
-            parent2.rank += parent1.rank
             
         self.num_sets -= 1
