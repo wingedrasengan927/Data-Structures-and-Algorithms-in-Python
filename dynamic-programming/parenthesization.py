@@ -45,4 +45,33 @@ def DP(i, j, memo, p):
     memo[(i,j)] = minCost
     return minCost
 
-print(main([10, 20, 30]))
+print(main([40, 20, 30, 10, 30]))
+
+
+'''
+--------------- Version 2 -------------
+'''
+
+def optimal_matrix_multiplication(p):
+    list_of_matrices = [[p[x-1], p[x]] for x in range(1, len(p))]
+    memo = dict()
+    return dp(0, len(list_of_matrices), list_of_matrices, memo)
+
+def dp(i, j, list_of_matrices, memo):
+    # note that j is exclusive here
+    if j - i <= 1: # base case: we have only one matrix
+        return 0
+    if (i, j) in memo:
+        return memo[(i, j)]
+    min_multiplications = float('inf')
+    for k in range(i+1, j):
+        # the cost of multiplying two matrices of shape m x k and k x n is m * k * n
+        # here in multiplication, list_of_matrices[k][0] can be replaced with list_of_matrices[k-1][1]
+        n_multiplications = dp(i, k, list_of_matrices, memo) + dp(k, j, list_of_matrices, memo) + \
+             list_of_matrices[i][0] * list_of_matrices[k][0] * list_of_matrices[j-1][1]
+        if n_multiplications < min_multiplications:
+            min_multiplications = n_multiplications
+    memo[(i, j)] = min_multiplications
+    return memo[(i, j)]
+
+print(optimal_matrix_multiplication([40, 20, 30, 10, 30]))

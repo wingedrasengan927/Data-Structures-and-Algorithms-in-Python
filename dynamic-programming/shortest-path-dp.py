@@ -67,7 +67,7 @@ def shortest_path_dp(graph, v, result):
             result.parent[v] = u
     return result.distance[v]
 
-result =shortest_path(graph, 1)
+result = shortest_path(graph, 1)
 print(result.distance)
 print(result.parent)
     
